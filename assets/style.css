@@ -345,10 +345,10 @@ h6,
 /* Animated Shimmer Text Logo */
 .animate-shimmer {
   background: linear-gradient(to right,
-      #0A192F 20%,
-      #D4AF37 40%,
-      #D4AF37 60%,
-      #0A192F 80%);
+      #D4AF37 20%,
+      #ffffff 40%,
+      #ffffff 60%,
+      #D4AF37 80%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -368,4 +368,41 @@ h6,
   display: inline-block;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+/* Premium Mobile Menu Styles */
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cbd5e1 !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--brand-gold) !important;
+  padding-left: 1.5rem;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-amber)) !important;
+  color: var(--brand-navy) !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  margin-top: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
 }

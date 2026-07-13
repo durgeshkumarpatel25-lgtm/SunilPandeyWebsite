@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunil Kumar Pandey | Premium Financial Services</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0A192F',
+                            midnight: '#0f172a',
+                            gold: '#D4AF37',
+                            amber: '#F59E0B',
+                            pearl: '#FAFAFA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center group">
+                        <span class="font-serif font-bold text-3xl tracking-tight animate-shimmer">Sunil Kumar Pandey</span>
+                        <span id="animated-subtitle" class="ml-4 text-sm text-gray-500 hidden sm:block border-l-2 pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-1">Financial Planner</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-brand-navy font-bold border-b-2 border-brand-gold pb-1 transition-all">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">About Us</a>
+                    <a href="services.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">Services</a>
+                    <a href="plans.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all flex items-center gap-1">Plans <span class="flex h-2 w-2 rounded-full bg-brand-gold animate-pulse"></span></a>
+                    <a href="calculators.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">Calculators</a>
+                    <a href="contact.html" class="px-7 py-3 btn-primary rounded-full font-semibold flex items-center gap-2 shadow-lg shadow-brand-navy/20">
+                        <i data-feather="phone-call" class="w-4 h-4"></i> Consult Now
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-brand-navy hover:text-brand-gold focus:outline-none transition-colors">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 rounded-lg text-base font-bold text-brand-navy bg-brand-pearl">Home</a>
+                <a href="about.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">About Us</a>
+                <a href="services.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">Services</a>
+                <a href="plans.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors flex justify-between items-center">Plans <span class="flex h-2 w-2 rounded-full bg-brand-gold animate-pulse"></span></a>
+                <a href="calculators.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">Calculators</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-lg text-base font-medium text-brand-gold hover:text-brand-amber hover:bg-gray-50 transition-colors">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-brand-pearl overflow-hidden pt-20 pb-40 fade-in-up">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-gold/5 blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[30rem] h-[30rem] rounded-full bg-brand-navy/5 blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center px-5 py-2.5 rounded-full bg-white text-brand-navy font-semibold text-sm mb-8 shadow-sm border border-gray-100 uppercase tracking-widest fade-in-up delay-100">
+                            <span class="flex h-2 w-2 rounded-full bg-brand-gold mr-3 animate-pulse"></span>
+                            Authorized Wealth Architect
+                        </div>
+                        <h1 class="text-5xl md:text-7xl font-serif font-bold text-brand-navy leading-tight mb-8 fade-in-up delay-200">
+                            Secure Your Legacy With <span class="text-gradient-gold italic">Trusted</span> Financial Planning
+                        </h1>
+                        <p class="text-xl text-gray-600 mb-10 leading-relaxed font-light max-w-2xl fade-in-up delay-300">
+                            Expert, personalized guidance for LIC policies and India Post savings schemes. We don't just sell plans; we craft secure futures for your family.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-5 fade-in-up delay-400">
+                            <a href="contact.html" class="px-8 py-4 btn-primary rounded-full font-bold text-lg flex items-center justify-center gap-3 group">
+                                Schedule Consultation <i data-feather="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="services.html" class="px-8 py-4 bg-white border border-gray-200 text-brand-navy rounded-full font-bold text-lg hover:border-brand-gold hover:text-brand-gold transition-all flex items-center justify-center">
+                                Explore Services
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 relative hidden lg:block fade-in-up delay-300">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                            <img src="../images/banner2.jpeg" alt="Family financial planning" class="w-full h-[600px] object-cover transition-transform duration-700 hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent flex items-end p-8">
+                                <div class="glass-card w-full p-6 flex justify-between items-center border-white/10">
+                                    <div>
+                                        <p class="text-brand-navy font-bold text-xl font-serif">Trusted by 2,500+</p>
+                                        <p class="text-slate-600 text-sm mt-1">Families secured</p>
+                                    </div>
+                                    <div class="bg-brand-gold text-brand-navy font-bold px-4 py-3 rounded-xl shadow-lg flex flex-col items-center leading-tight">
+                                        <span class="text-xl">15+</span>
+                                        <span class="text-xs uppercase tracking-wider">Years</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="relative -mt-24 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 fade-in-up delay-400">
+            <div class="glass-card p-10 grid grid-cols-1 md:grid-cols-4 gap-10 divide-y md:divide-y-0 md:divide-x divide-gray-200/50 bg-white/80">
+                <div class="flex flex-col items-center justify-center text-center group">
+                    <div class="w-14 h-14 bg-brand-pearl text-brand-gold rounded-2xl flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-4xl font-serif font-bold text-brand-navy mb-2">2,500+</h3>
+                    <p class="text-gray-500 font-medium tracking-wide uppercase text-xs">Happy Customers</p>
+                </div>
+                <div class="flex flex-col items-center justify-center text-center group">
+                    <div class="w-14 h-14 bg-brand-pearl text-brand-gold rounded-2xl flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-4xl font-serif font-bold text-brand-navy mb-2">15+</h3>
+                    <p class="text-gray-500 font-medium tracking-wide uppercase text-xs">Years Experience</p>
+                </div>
+                <div class="flex flex-col items-center justify-center text-center group">
+                    <div class="w-14 h-14 bg-brand-pearl text-brand-gold rounded-2xl flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-4xl font-serif font-bold text-brand-navy mb-2">10k+</h3>
+                    <p class="text-gray-500 font-medium tracking-wide uppercase text-xs">Policies Issued</p>
+                </div>
+                <div class="flex flex-col items-center justify-center text-center group">
+                    <div class="w-14 h-14 bg-brand-pearl text-brand-gold rounded-2xl flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-4xl font-serif font-bold text-brand-navy mb-2">100%</h3>
+                    <p class="text-gray-500 font-medium tracking-wide uppercase text-xs">Claims Assisted</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banners Showcase -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="relative overflow-hidden rounded-3xl shadow-xl border-4 border-white bg-white">
+                    <img src="../images/banner1.jpeg" alt="LIC Plans Banner" class="w-full h-auto block hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="relative overflow-hidden rounded-3xl shadow-xl border-4 border-white bg-white">
+                    <img src="../images/banner3.jpeg" alt="India Post Savings Banner" class="w-full h-auto block hover:scale-105 transition-transform duration-500" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Why LIC Section -->
+        <section class="py-24 bg-white relative overflow-hidden">
+            <div class="absolute top-1/2 left-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-navy mb-6">Why Choose <span class="text-gradient">LIC?</span></h2>
+                    <p class="text-lg text-gray-600 font-light leading-relaxed">The Life Insurance Corporation of India is more than just insurance; it's a promise of trust, backed by the sovereign guarantee of the Government of India.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 group hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                            <i data-feather="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Sovereign Guarantee</h3>
+                        <p class="text-gray-600 font-light leading-relaxed">Unlike private insurers, LIC policies carry a sovereign guarantee under Section 37 of the LIC Act, ensuring absolute safety of your sum assured and bonuses.</p>
+                    </div>
+                    <div class="glass-card p-8 group hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                            <i data-feather="pie-chart" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Unmatched Claim Ratio</h3>
+                        <p class="text-gray-600 font-light leading-relaxed">LIC consistently maintains one of the highest claim settlement ratios globally (over 98%), ensuring your family faces no hurdles during times of need.</p>
+                    </div>
+                    <div class="glass-card p-8 group hover:border-blue-500 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                            <i data-feather="trending-up" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-brand-navy mb-3">Consistent Bonuses</h3>
+                        <p class="text-gray-600 font-light leading-relaxed">Decades of proven track record in declaring attractive bonuses on participating policies, beating inflation and building generational wealth.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                    <a href="plans.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-brand-navy transition-colors">
+                        Explore LIC Plans <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Power of Saving Section -->
+        <section class="py-24 bg-brand-navy text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/95 to-brand-navy/80"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-gold/20 text-brand-gold font-semibold text-xs uppercase tracking-widest mb-6">
+                            Financial Philosophy
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">Why Make Saving A <span class="text-brand-gold italic">Habit?</span></h2>
+                        <p class="text-xl text-gray-300 mb-8 font-light leading-relaxed">
+                            "Do not save what is left after spending, but spend what is left after saving." - Warren Buffett
+                        </p>
+                        
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold mt-1">
+                                    <i data-feather="umbrella" class="w-5 h-5"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-xl font-bold font-serif">Financial Independence</h4>
+                                    <p class="text-gray-400 mt-1 font-light">A strong corpus gives you the freedom to make life choices without financial constraints.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold mt-1">
+                                    <i data-feather="activity" class="w-5 h-5"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-xl font-bold font-serif">Emergency Preparedness</h4>
+                                    <p class="text-gray-400 mt-1 font-light">Life is unpredictable. Your savings act as a shock absorber during medical emergencies or job losses.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold mt-1">
+                                    <i data-feather="sun" class="w-5 h-5"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-xl font-bold font-serif">Peace of Mind</h4>
+                                    <p class="text-gray-400 mt-1 font-light">Knowing your future and your family's future is secure drastically reduces stress and anxiety.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-12">
+                            <a href="plans.html" class="px-8 py-4 btn-gold rounded-full font-bold text-lg inline-flex items-center gap-3 glow-effect">
+                                Start Your Journey Today
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden lg:block relative" data-aos="fade-left">
+                        <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Plant growing in coins" class="w-full h-[600px] object-cover" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent flex items-end p-8">
+                                <div class="glass-card bg-brand-navy/60 w-full p-6 border-white/20">
+                                    <div class="flex items-center gap-4 text-brand-gold mb-2">
+                                        <i data-feather="trending-up"></i>
+                                        <span class="font-bold">The Magic of Compounding</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm font-light">Starting early allows your wealth to grow exponentially. Small, regular investments in Post Office schemes or LIC create massive wealth over time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white pt-20 pb-10 border-t-4 border-brand-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+                <div class="lg:col-span-4">
+                    <h3 class="text-3xl font-serif font-bold mb-6 tracking-tight text-white">Sunil Kumar Pandey</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 font-light pr-4">
+                        Authorized LIC Insurance Agent and India Post Small Savings Agent. Securing your legacy with trusted financial planning and highly personalized guidance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition-colors text-white">
+                            <i data-feather="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition-colors text-white">
+                            <i data-feather="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition-colors text-white">
+                            <i data-feather="linkedin" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h4 class="text-lg font-serif font-semibold mb-6 text-brand-gold">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors text-sm">Services</a></li>
+                        <li><a href="plans.html" class="text-gray-400 hover:text-white transition-colors text-sm">Our Plans</a></li>
+                        <li><a href="calculators.html" class="text-gray-400 hover:text-white transition-colors text-sm">Calculators</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-3">
+                    <h4 class="text-lg font-serif font-semibold mb-6 text-brand-gold">Contact Info</h4>
+                    <ul class="space-y-5 text-gray-400 text-sm">
+                        <li class="flex items-start"><i data-feather="map-pin" class="w-5 h-5 mr-4 text-brand-gold shrink-0 mt-0.5"></i> Govardhanpur post rewati distt surajpur chhattisgarh 497223</li>
+                        <li class="flex items-center"><i data-feather="phone" class="w-5 h-5 mr-4 text-brand-gold shrink-0"></i> +91 96694 84612</li>
+                        <li class="flex items-center"><i data-feather="mail" class="w-5 h-5 mr-4 text-brand-gold shrink-0"></i> pandey.sunil151290@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 mt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Sunil Kumar Pandey. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-xs italic max-w-xl text-right">
+                    Disclaimer: We are an independent authorized agent. Not the official website of LIC or India Post.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        feather.replace();
+    </script>
+    <script src="assets/script.js"></script>
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+        <a href="https://wa.me/919669484612" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/40 hover:scale-110 transition-transform duration-300 relative group">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span class="absolute right-16 bg-gray-900 text-white text-sm font-semibold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">WhatsApp Us</span>
+        </a>
+        <a href="tel:+919669484612" class="w-14 h-14 bg-brand-gold text-brand-navy rounded-full flex items-center justify-center shadow-lg shadow-brand-gold/40 hover:scale-110 transition-transform duration-300 relative group">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.013 15.024c-1.527-.089-3.036-.372-4.484-.843-.727-.238-1.542-.089-2.13.498l-2.072 1.637C8.5 14.545 6.326 12.217 4.568 9.387l1.503-2.075c.587-.588.736-1.402.498-2.129-.47-.1447-.753-2.956-.843-4.483C5.64 1.391 4.512.23 3.2.228H2.438C1.109.228.016 1.32.062 2.651c.365 10.638 8.878 19.143 19.516 19.508 1.33.047 2.423-1.046 2.423-2.376v-.762c-.002-1.312-1.163-2.44-2.488-2.529z"/></svg>
+            <span class="absolute right-16 bg-gray-900 text-white text-sm font-semibold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Call Now</span>
+        </a>
+    </div>
+</body>
+</html>

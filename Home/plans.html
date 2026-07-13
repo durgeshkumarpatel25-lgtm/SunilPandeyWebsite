@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Plans | Sunil Kumar Pandey</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0A192F',
+                            midnight: '#0f172a',
+                            gold: '#D4AF37',
+                            amber: '#F59E0B',
+                            pearl: '#FAFAFA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        .section-tab.active {
+            background-color: #0A192F;
+            color: #D4AF37;
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .plan-section { 
+            display: none; 
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .plan-section.active { 
+            display: block; 
+            opacity: 1;
+        }
+        .table-auto th { background-color: #f3f4f6; text-align: left; }
+        
+        .banner-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+        
+        .banner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .banner-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.8), transparent);
+            border-radius: 1.5rem;
+        }
+        
+        .hero-banner-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .hero-banner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-brand-pearl">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-nav shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center group">
+                        <span class="font-serif font-bold text-3xl tracking-tight animate-shimmer">Sunil Kumar Pandey</span>
+                        <span id="animated-subtitle" class="ml-4 text-sm text-gray-500 hidden sm:block border-l-2 pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-1">Financial Planner</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">About Us</a>
+                    <a href="services.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">Services</a>
+                    <a href="plans.html" class="text-brand-navy font-bold border-b-2 border-brand-gold pb-1 transition-all flex items-center gap-1">Plans <span class="flex h-2 w-2 rounded-full bg-brand-gold animate-pulse"></span></a>
+                    <a href="calculators.html" class="text-gray-600 hover:text-brand-navy font-medium hover:border-b-2 hover:border-gray-300 pb-1 transition-all">Calculators</a>
+                    <a href="contact.html" class="px-7 py-3 btn-primary rounded-full font-semibold flex items-center gap-2 shadow-lg shadow-brand-navy/20">
+                        <i data-feather="phone-call" class="w-4 h-4"></i> Consult Now
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-brand-navy hover:text-brand-gold focus:outline-none transition-colors">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">About Us</a>
+                <a href="services.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">Services</a>
+                <a href="plans.html" class="block px-3 py-3 rounded-lg text-base font-bold text-brand-navy bg-brand-pearl flex justify-between items-center">Plans <span class="flex h-2 w-2 rounded-full bg-brand-gold animate-pulse"></span></a>
+                <a href="calculators.html" class="block px-3 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-brand-navy hover:bg-gray-50 transition-colors">Calculators</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-lg text-base font-medium text-brand-gold hover:text-brand-amber hover:bg-gray-50 transition-colors">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12 md:py-20 relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-gold/5 rounded-full blur-3xl -mr-64 -mt-64 z-0 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Hero Banner -->
+            <div class="hero-banner-container" data-aos="zoom-in" data-aos-duration="800">
+                <img src="../images/banner1.jpeg" alt="Explore Our Comprehensive Portfolio">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-navy/90 to-brand-navy/40 flex flex-col justify-center px-8 md:px-16">
+                    <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-4">Explore Our <span class="text-brand-gold">Comprehensive Portfolio</span></h1>
+                    <p class="text-lg md:text-xl text-gray-200 max-w-2xl font-light leading-relaxed">Discover the complete lineup of official LIC policies, India Post Small Savings Schemes, and Postal Life Insurance plans, tailored for your secure future.</p>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                <button class="section-tab active px-8 py-3 rounded-full font-bold text-gray-700 bg-white border border-gray-200 transition-all" onclick="switchSection('lic-section', this)">LIC Insurance Plans</button>
+                <button class="section-tab px-8 py-3 rounded-full font-bold text-gray-700 bg-white border border-gray-200 transition-all" onclick="switchSection('post-section', this)">India Post Small Savings</button>
+                <button class="section-tab px-8 py-3 rounded-full font-bold text-gray-700 bg-white border border-gray-200 transition-all" onclick="switchSection('pli-section', this)">Postal Life Insurance</button>
+            </div>
+
+            <!-- SECTION 1: LIC Insurance Plans -->
+            <div id="lic-section" class="plan-section active">
+                
+                <div class="banner-container" data-aos="fade-up">
+                    <img src="../images/banner2.jpeg" alt="LIC Insurance Plans">
+                    <div class="banner-overlay flex items-end p-8">
+                        <h2 class="text-4xl font-serif font-bold text-white">LIC Insurance Plans</h2>
+                    </div>
+                </div>
+
+                <!-- A. Term Insurance -->
+                <div class="mb-12 glass-card p-8 rounded-3xl bg-white shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="shield" class="text-brand-gold"></i> A. Term Insurance Plans</h3>
+                    <p class="text-gray-600 mb-6 font-medium bg-gray-50 inline-block px-4 py-2 rounded-lg">Purpose: Pure Protection • Lowest Premium • Highest Life Cover</p>
+                    <div class="overflow-x-auto rounded-xl border border-gray-100">
+                        <table class="w-full text-left border-collapse table-auto">
+                            <thead>
+                                <tr>
+                                    <th class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-brand-navy">Plan Name</th>
+                                    <th class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-brand-navy">Plan No.</th>
+                                    <th class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-brand-navy">Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC Digi Term</td><td class="p-4 border-b border-gray-100 text-gray-500">876</td><td class="p-4 border-b border-gray-100 text-gray-600">Online Term Insurance</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC Yuva Term</td><td class="p-4 border-b border-gray-100 text-gray-500">875</td><td class="p-4 border-b border-gray-100 text-gray-600">Young Professionals</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC New Tech Term</td><td class="p-4 border-b border-gray-100 text-gray-500">954</td><td class="p-4 border-b border-gray-100 text-gray-600">Online High Cover</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC New Jeevan Amar</td><td class="p-4 border-b border-gray-100 text-gray-500">955</td><td class="p-4 border-b border-gray-100 text-gray-600">Pure Term Insurance</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC Saral Jeevan Bima</td><td class="p-4 border-b border-gray-100 text-gray-500">859</td><td class="p-4 border-b border-gray-100 text-gray-600">Standard Term Plan</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC Digi Credit Life</td><td class="p-4 border-b border-gray-100 text-gray-500">878</td><td class="p-4 border-b border-gray-100 text-gray-600">Loan Protection</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC Yuva Credit Life</td><td class="p-4 border-b border-gray-100 text-gray-500">877</td><td class="p-4 border-b border-gray-100 text-gray-600">Education/Home Loan</td></tr>
+                                <tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b border-gray-100 font-medium">LIC Bima Kavach</td><td class="p-4 border-b border-gray-100 text-gray-500">887</td><td class="p-4 border-b border-gray-100 text-gray-600">Pure Protection</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">✓ High Life Cover</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">✓ Lowest Premium</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">✓ Tax Benefit</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">✓ Death Benefit</span>
+                    </div>
+                </div>
+
+                <!-- B. Endowment Plans -->
+                <div class="mb-12 glass-card p-8 rounded-3xl bg-white shadow-lg" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="briefcase" class="text-brand-gold"></i> B. Endowment Plans</h3>
+                    <p class="text-gray-600 mb-6 font-medium bg-gray-50 inline-block px-4 py-2 rounded-lg">Insurance + Savings + Bonus</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">New Endowment Plan</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 714</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">New Jeevan Anand</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 715</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Lakshya</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 733</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Labh</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 736</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Single Premium Endowment</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 717</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Amritbaal</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 774</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Bima Jyoti</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 760</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Nav Jeevan Shree</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 912</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Bima Lakshmi</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 881</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">New Jeevan Sathi Single</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 888</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">New Jeevan Sathi Limited</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 889</p></div>
+                    </div>
+                    <div class="bg-brand-navy/5 p-5 rounded-2xl flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-brand-navy">
+                        <span class="flex items-center"><i data-feather="check" class="w-4 h-4 text-brand-gold mr-1"></i> Guaranteed Maturity</span>
+                        <span class="flex items-center"><i data-feather="check" class="w-4 h-4 text-brand-gold mr-1"></i> Annual Bonus</span>
+                        <span class="flex items-center"><i data-feather="check" class="w-4 h-4 text-brand-gold mr-1"></i> Death Benefit</span>
+                        <span class="flex items-center"><i data-feather="check" class="w-4 h-4 text-brand-gold mr-1"></i> Loan Facility</span>
+                        <span class="flex items-center"><i data-feather="check" class="w-4 h-4 text-brand-gold mr-1"></i> Tax Saving</span>
+                    </div>
+                </div>
+
+                <!-- C, D, E, F Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" data-aos="fade-up">
+                    
+                    <!-- C. Whole Life Plans -->
+                    <div class="glass-card p-8 rounded-3xl bg-white shadow-lg border-t-4 border-brand-navy">
+                        <h3 class="text-xl font-bold text-brand-navy mb-5 flex items-center gap-2"><i data-feather="heart" class="text-brand-gold"></i> C. Whole Life Plans</h3>
+                        <ul class="space-y-4 mb-6">
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Jeevan Umang</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">745</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Jeevan Utsav</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">771</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Jeevan Utsav Single</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">883</span></li>
+                        </ul>
+                        <p class="text-sm text-gray-600 font-medium bg-brand-pearl p-3 rounded-lg border border-gray-100">Benefits: Lifetime Insurance, Guaranteed Income, Bonus, Loan</p>
+                    </div>
+
+                    <!-- D. Money Back Plans -->
+                    <div class="glass-card p-8 rounded-3xl bg-white shadow-lg border-t-4 border-brand-gold">
+                        <h3 class="text-xl font-bold text-brand-navy mb-5 flex items-center gap-2"><i data-feather="refresh-cw" class="text-brand-navy"></i> D. Money Back Plans</h3>
+                        <ul class="space-y-4 mb-6">
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Bima Shree</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">748</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Money Back 20 Years</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">720</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Money Back 25 Years</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">721</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Children's Money Back</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">732</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Jeevan Tarun</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">734</span></li>
+                        </ul>
+                        <p class="text-sm text-gray-600 font-medium bg-brand-pearl p-3 rounded-lg border border-gray-100">Benefits: Regular Money Back, Life Cover Continues, Bonus</p>
+                    </div>
+
+                    <!-- E. Pension Plans -->
+                    <div class="glass-card p-8 rounded-3xl bg-white shadow-lg">
+                        <h3 class="text-xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="sunset" class="text-brand-gold"></i> E. Pension Plans</h3>
+                        <ul class="space-y-3 mb-6 font-bold text-gray-800">
+                            <li class="p-4 border border-gray-100 rounded-xl bg-gray-50">Jeevan Akshay</li>
+                            <li class="p-4 border border-gray-100 rounded-xl bg-gray-50">New Jeevan Shanti</li>
+                        </ul>
+                        <p class="text-sm text-gray-600 font-medium">Benefits: Monthly Pension, Lifetime Income, Joint Life Option</p>
+                    </div>
+
+                    <!-- F. ULIP Plans -->
+                    <div class="glass-card p-8 rounded-3xl bg-white shadow-lg">
+                        <h3 class="text-xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="trending-up" class="text-brand-gold"></i> F. ULIP Plans</h3>
+                        <ul class="space-y-3 mb-6 font-bold text-gray-800">
+                            <li class="p-4 border border-gray-100 rounded-xl bg-gray-50">LIC SIIP</li>
+                            <li class="p-4 border border-gray-100 rounded-xl bg-gray-50">LIC Nivesh Plus</li>
+                        </ul>
+                        <p class="text-sm text-gray-600 font-medium">Benefits: Insurance, Market Investment, Fund Switching</p>
+                    </div>
+
+                </div>
+
+                <!-- G. Riders & Services -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8" data-aos="fade-up">
+                    <div class="glass-card p-8 rounded-3xl bg-brand-navy text-white shadow-xl relative overflow-hidden lg:col-span-1">
+                        <div class="absolute -right-10 -bottom-10 opacity-10"><i data-feather="plus-circle" class="w-48 h-48"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-gold mb-6 relative z-10">G. Available Riders</h3>
+                        <ul class="space-y-4 text-sm font-medium relative z-10">
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-brand-gold"></i> Accidental Death</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-brand-gold"></i> Critical Illness</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-brand-gold"></i> Premium Waiver</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-brand-gold"></i> Disability Rider</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-brand-gold"></i> Term Rider</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-brand-gold"></i> Female Critical Illness</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-card p-8 rounded-3xl bg-white border border-gray-200 shadow-xl lg:col-span-2">
+                        <h3 class="text-2xl font-bold text-brand-navy mb-6">LIC Services</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm font-bold text-brand-navy">
+                            <div class="bg-brand-pearl p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-brand-gold transition cursor-pointer">New Policy</div>
+                            <div class="bg-brand-pearl p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-brand-gold transition cursor-pointer">Premium Payment</div>
+                            <div class="bg-brand-pearl p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-brand-gold transition cursor-pointer">Policy Revival</div>
+                            <div class="bg-brand-pearl p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-brand-gold transition cursor-pointer">Nominee Change</div>
+                            <div class="bg-brand-pearl p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-brand-gold transition cursor-pointer">Loan & Maturity</div>
+                            <div class="bg-brand-pearl p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:border-brand-gold transition cursor-pointer">Death Claim</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: India Post Small Saving Schemes -->
+            <div id="post-section" class="plan-section">
+                
+                <div class="banner-container" data-aos="fade-up">
+                    <img src="../images/banner3.jpeg" alt="India Post Small Saving Schemes">
+                    <div class="banner-overlay flex items-end p-8">
+                        <h2 class="text-4xl font-serif font-bold text-white">India Post Small Saving Schemes</h2>
+                    </div>
+                </div>
+
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <p class="text-lg text-gray-700 font-bold bg-red-50 inline-flex items-center px-6 py-3 rounded-full border border-red-100 shadow-sm"><i data-feather="shield" class="w-5 h-5 mr-2 text-red-600"></i> Government Guaranteed • Safe Investment • Risk Free</p>
+                </div>
+
+                <!-- Interest Rates Table (Highlighted) -->
+                <div class="mb-12 glass-card p-0 rounded-3xl bg-white shadow-2xl overflow-hidden" data-aos="fade-up">
+                    <div class="bg-red-600 p-6 flex justify-between items-center text-white">
+                        <h3 class="text-2xl font-bold flex items-center gap-3"><i data-feather="trending-up" class="w-6 h-6"></i> Current Interest Rates</h3>
+                        <span class="text-xs md:text-sm font-medium bg-red-700 px-3 py-1 rounded-full">*Revised Quarterly by Govt of India</span>
+                    </div>
+                    <div class="overflow-x-auto p-2">
+                        <table class="w-full text-left border-collapse table-auto">
+                            <thead>
+                                <tr>
+                                    <th class="p-5 border-b border-gray-200 font-bold text-gray-500 uppercase tracking-wider text-sm">Scheme</th>
+                                    <th class="p-5 border-b border-gray-200 font-bold text-gray-500 uppercase tracking-wider text-sm text-right">Interest Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Savings Account</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">4.0%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Recurring Deposit (RD)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">6.7%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Time Deposit (1 Year)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">6.9%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Time Deposit (2 Years)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.0%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Time Deposit (3 Years)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.1%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Time Deposit (5 Years)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.5%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Monthly Income Scheme (MIS)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.4%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">National Savings Certificate (NSC)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.7%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Kisan Vikas Patra (KVP)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.5%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition"><td class="p-5 border-b border-gray-50 font-bold text-gray-800">Public Provident Fund (PPF)</td><td class="p-5 border-b border-gray-50 text-red-600 font-bold text-right text-lg">7.1%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition bg-red-50"><td class="p-5 border-b border-gray-100 font-bold text-gray-800">Senior Citizen Saving Scheme (SCSS)</td><td class="p-5 border-b border-gray-100 text-red-700 font-bold text-right text-xl">8.2%</td></tr>
+                                <tr class="hover:bg-red-50/50 transition bg-red-50"><td class="p-5 font-bold text-gray-800">Sukanya Samriddhi Account</td><td class="p-5 text-red-700 font-bold text-right text-xl">8.2%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Scheme Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" data-aos="fade-up">
+                    
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="credit-card"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">1. Post Office Savings Account</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Minimum ₹500</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> ATM & Net Banking</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> No Maximum Limit</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="target"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">2. Recurring Deposit (RD)</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> 5 Years Tenure</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Min ₹100/month</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Compound Interest</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="clock"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">3. Time Deposit (FD)</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> 1, 2, 3, 5 Year terms</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Tax Benefit on 5-Year TD</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Guaranteed Annual Interest</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="calendar"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">4. Monthly Income Scheme</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> 5 Years Tenure</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Regular Monthly Income</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Ideal for Retired People</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="briefcase"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">5. Public Provident Fund (PPF)</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> 15 Years Tenure</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> EEE Tax Benefit</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Loan & Partial Withdrawal</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="star"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">6. Sukanya Samriddhi</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> For Girl Child</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Tax Free, High Interest</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Education & Marriage Fund</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="file-text"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">7. National Savings Certificate</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> 5 Years Tenure</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Tax Saving Option</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Compound Interest</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="chevrons-up"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">8. Kisan Vikas Patra (KVP)</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Money Doubles at Maturity</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> No Maximum Limit</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Transfer Facility</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl bg-white shadow-md border-t-4 border-red-500 hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-4"><i data-feather="award"></i></div>
+                        <h4 class="text-xl font-bold text-brand-navy mb-3">9. Senior Citizen Scheme</h4>
+                        <ul class="text-sm font-medium text-gray-600 space-y-2">
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Age 60+</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> High Quarterly Income</li>
+                            <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-red-500"></i> Tax Benefits Applicable</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECTION 3: PLI, RPLI & Additional Services -->
+            <div id="pli-section" class="plan-section">
+                
+                <div class="banner-container" data-aos="fade-up">
+                    <img src="../images/banner4.jpeg" alt="Postal Life Insurance & Services">
+                    <div class="banner-overlay flex items-end p-8">
+                        <h2 class="text-4xl font-serif font-bold text-white">Postal Life Insurance & Services</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" data-aos="fade-up">
+                    
+                    <!-- PLI -->
+                    <div class="glass-card p-10 rounded-3xl bg-white shadow-xl border border-gray-100">
+                        <div class="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm"><i data-feather="mail" class="w-8 h-8"></i></div>
+                        <h3 class="text-3xl font-bold text-brand-navy mb-6">Postal Life Insurance (PLI)</h3>
+                        <ul class="space-y-4 mb-8 font-medium text-gray-700 text-lg">
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-green-500"></i> Whole Life Assurance</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-green-500"></i> Endowment Assurance</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-green-500"></i> Convertible Whole Life</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-green-500"></i> Anticipated Endowment</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-green-500"></i> Children's Policy</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-green-500"></i> Joint Life Assurance</li>
+                        </ul>
+                        <p class="text-sm bg-green-50 border border-green-100 text-green-700 p-4 rounded-xl font-bold text-center">Benefits: High Bonus, Low Premium, Loan, Tax Benefit</p>
+                    </div>
+
+                    <!-- RPLI -->
+                    <div class="glass-card p-10 rounded-3xl bg-white shadow-xl border border-gray-100">
+                        <div class="w-16 h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mb-6 shadow-sm"><i data-feather="sun" class="w-8 h-8"></i></div>
+                        <h3 class="text-3xl font-bold text-brand-navy mb-2">Rural Postal Life (RPLI)</h3>
+                        <p class="text-gray-500 mb-6 font-medium bg-amber-50 inline-block px-3 py-1 rounded-md text-sm">Designed specifically for Rural India</p>
+                        <ul class="space-y-4 mb-6 font-medium text-gray-700 text-lg">
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-amber-500"></i> Gram Suraksha</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-amber-500"></i> Gram Santosh</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-amber-500"></i> Gram Priya</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-amber-500"></i> Gram Sumangal</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-amber-500"></i> Gram Suvidha</li>
+                            <li class="flex items-center"><i data-feather="check-circle" class="w-5 h-5 mr-3 text-amber-500"></i> Bal Jeevan Bima</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Services -->
+                <div class="glass-card p-12 rounded-3xl bg-brand-navy text-white shadow-2xl text-center relative overflow-hidden" data-aos="zoom-in">
+                    <div class="absolute -right-20 -top-20 opacity-5"><i data-feather="grid" class="w-96 h-96"></i></div>
+                    <h3 class="text-4xl font-serif font-bold text-brand-gold mb-8 relative z-10">Additional Digital Services</h3>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm font-bold relative z-10">
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">Premium Calculator</span>
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">FD/RD Calculator</span>
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">PPF/SIP Calculator</span>
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">LIC Eligibility Checker</span>
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">Claim Assistance</span>
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">Document Checklist</span>
+                        <span class="bg-white/10 border border-white/20 px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm">Online Appointment</span>
+                        <span class="bg-white/10 border border-brand-gold/50 text-brand-gold px-6 py-3 rounded-full hover:bg-brand-gold hover:text-brand-navy transition-all cursor-pointer shadow-lg backdrop-blur-sm flex items-center"><i data-feather="message-circle" class="w-5 h-5 mr-2"></i> WhatsApp Chat</span>
+                    </div>
+                    <div class="mt-12 pt-10 border-t border-white/10 relative z-10">
+                        <a href="contact.html" class="inline-flex items-center px-10 py-4 bg-brand-gold text-brand-navy rounded-full font-bold text-lg hover:bg-brand-amber transition-colors shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]">
+                            Contact Us for Assistance <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white pt-20 pb-10 border-t-4 border-brand-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+                <div class="lg:col-span-4">
+                    <h3 class="text-3xl font-serif font-bold mb-6 tracking-tight text-white">Sunil Kumar Pandey</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 font-light pr-4">
+                        Authorized LIC Insurance Agent and India Post Small Savings Agent. Securing your legacy with trusted financial planning and highly personalized guidance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-colors text-white">
+                            <i data-feather="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-colors text-white">
+                            <i data-feather="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold hover:text-brand-navy transition-colors text-white">
+                            <i data-feather="linkedin" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h4 class="text-lg font-serif font-semibold mb-6 text-brand-gold">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors text-sm">Services</a></li>
+                        <li><a href="plans.html" class="text-gray-400 hover:text-white transition-colors text-sm">Our Plans</a></li>
+                        <li><a href="calculators.html" class="text-gray-400 hover:text-white transition-colors text-sm">Calculators</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-3">
+                    <h4 class="text-lg font-serif font-semibold mb-6 text-brand-gold">Contact Info</h4>
+                    <ul class="space-y-5 text-gray-400 text-sm">
+                        <li class="flex items-start"><i data-feather="map-pin" class="w-5 h-5 mr-4 text-brand-gold shrink-0 mt-0.5"></i> Govardhanpur post rewati distt surajpur chhattisgarh 497223</li>
+                        <li class="flex items-center"><i data-feather="phone" class="w-5 h-5 mr-4 text-brand-gold shrink-0"></i> +91 96694 84612</li>
+                        <li class="flex items-center"><i data-feather="mail" class="w-5 h-5 mr-4 text-brand-gold shrink-0"></i> pandey.sunil151290@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 mt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Sunil Kumar Pandey. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-xs italic max-w-xl text-right">
+                    Disclaimer: We are an independent authorized agent. Not the official website of LIC or India Post.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons & Script -->
+    <script>
+        feather.replace();
+        
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Tab Switching Logic
+        function switchSection(sectionId, btnElement) {
+            // Hide all sections
+            document.querySelectorAll('.plan-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Show targeted section
+            setTimeout(() => {
+                document.getElementById(sectionId).classList.add('active');
+            }, 50); // slight delay to allow display:block to apply before opacity transition
+            
+            // Update button styles
+            document.querySelectorAll('.section-tab').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('bg-white', 'text-gray-700');
+                btn.classList.remove('bg-brand-navy', 'text-brand-gold');
+            });
+            btnElement.classList.add('active');
+            
+            // Re-trigger AOS animations
+            AOS.refreshHard();
+        }
+    </script>
+    <script src="assets/script.js"></script>
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+        <a href="https://wa.me/919669484612" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/40 hover:scale-110 transition-transform duration-300 relative group">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span class="absolute right-16 bg-gray-900 text-white text-sm font-semibold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">WhatsApp Us</span>
+        </a>
+        <a href="tel:+919669484612" class="w-14 h-14 bg-brand-gold text-brand-navy rounded-full flex items-center justify-center shadow-lg shadow-brand-gold/40 hover:scale-110 transition-transform duration-300 relative group">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.013 15.024c-1.527-.089-3.036-.372-4.484-.843-.727-.238-1.542-.089-2.13.498l-2.072 1.637C8.5 14.545 6.326 12.217 4.568 9.387l1.503-2.075c.587-.588.736-1.402.498-2.129-.47-.1447-.753-2.956-.843-4.483C5.64 1.391 4.512.23 3.2.228H2.438C1.109.228.016 1.32.062 2.651c.365 10.638 8.878 19.143 19.516 19.508 1.33.047 2.423-1.046 2.423-2.376v-.762c-.002-1.312-1.163-2.44-2.488-2.529z"/></svg>
+            <span class="absolute right-16 bg-gray-900 text-white text-sm font-semibold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Call Now</span>
+        </a>
+    </div>
+</body>
+</html>

@@ -110,8 +110,11 @@
             <div class="flex justify-between h-16 md:h-20">
                 <div class="flex items-center">
                     <a href="index.html" class="flex-shrink-0 flex flex-col sm:flex-row items-start sm:items-center group mt-1 sm:mt-0">
-                        <span class="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight animate-shimmer leading-tight">Sunil Kumar Pandey</span>
-                        <span id="animated-subtitle" class="sm:ml-4 text-xs sm:text-sm text-gray-500 sm:border-l-2 sm:pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-0.5 sm:mt-1">Financial Planner</span>
+                        <div class="flex items-center">
+                            <img src="images/logo.png" alt="Sunil Financial Logo" class="h-10 sm:h-12 w-auto mr-3 object-contain">
+                            <span class="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight animate-shimmer leading-tight">Sunil Financial</span>
+                        </div>
+                        <span id="animated-subtitle" class="sm:ml-4 text-xs sm:text-sm text-gray-500 sm:border-l-2 sm:pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-1 sm:mt-0">Financial Planner</span>
                     </a>
                 </div>
                 
@@ -187,10 +190,10 @@
                     <h3 class="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="users" class="text-brand-gold"></i> 1. Children Plans</h3>
                     <p class="text-gray-600 mb-6 font-medium bg-gray-50 inline-block px-4 py-2 rounded-lg">Secure your child's future, education, and marriage.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-8">
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">New Children MoneyBack</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 732</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Tarun</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 734</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Amrit Baal</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 774</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Amrit Baal (Single Premium)</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 774</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('732')"><h4 class="font-bold text-brand-navy text-lg">New Children MoneyBack</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 732</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('734')"><h4 class="font-bold text-brand-navy text-lg">Jeevan Tarun</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 734</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('774')"><h4 class="font-bold text-brand-navy text-lg">Amrit Baal</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 774</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('774')"><h4 class="font-bold text-brand-navy text-lg">Amrit Baal (Single Premium)</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 774</p></div>
                     </div>
                 </div>
 
@@ -199,9 +202,9 @@
                     <h3 class="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="heart" class="text-brand-gold"></i> 2. WholeLife Plans</h3>
                     <p class="text-gray-600 mb-6 font-medium bg-gray-50 inline-block px-4 py-2 rounded-lg">Lifetime insurance cover with guaranteed regular income.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Umang</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 745</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Utsav</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 771</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Utsav SinglePremium</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 883</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('745')"><h4 class="font-bold text-brand-navy text-lg">Jeevan Umang</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 745</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('771')"><h4 class="font-bold text-brand-navy text-lg">Jeevan Utsav</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 771</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('883')"><h4 class="font-bold text-brand-navy text-lg">Jeevan Utsav SinglePremium</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 883</p></div>
                     </div>
                 </div>
 
@@ -210,8 +213,8 @@
                     <h3 class="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="dollar-sign" class="text-brand-gold"></i> 3. Single Premium Plans</h3>
                     <p class="text-gray-600 mb-6 font-medium bg-gray-50 inline-block px-4 py-2 rounded-lg">Invest once and enjoy long-term benefits and insurance cover.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Single Premium Endowment</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 717</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">New Jeevan Sathi</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 888</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('717')"><h4 class="font-bold text-brand-navy text-lg">Single Premium Endowment</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 717</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('888')"><h4 class="font-bold text-brand-navy text-lg">New Jeevan Sathi</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 888</p></div>
                     </div>
                 </div>
 
@@ -220,9 +223,9 @@
                     <h3 class="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2"><i data-feather="sunset" class="text-brand-gold"></i> 4. Pension Plans</h3>
                     <p class="text-gray-600 mb-6 font-medium bg-gray-50 inline-block px-4 py-2 rounded-lg">Ensure a steady flow of income post-retirement.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Shanti</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 758</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Jeevan Akshay</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 857</p></div>
-                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer"><h4 class="font-bold text-brand-navy text-lg">Smart Pension</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 879</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('758')"><h4 class="font-bold text-brand-navy text-lg">Jeevan Shanti</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 758</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('857')"><h4 class="font-bold text-brand-navy text-lg">Jeevan Akshay</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 857</p></div>
+                        <div class="p-5 border border-gray-100 bg-gray-50/50 rounded-2xl hover:shadow-md hover:bg-white hover:border-brand-gold/30 transition-all cursor-pointer" onclick="openPlanModal('879')"><h4 class="font-bold text-brand-navy text-lg">Smart Pension</h4><p class="text-sm font-semibold text-brand-gold mt-1">Plan 879</p></div>
                     </div>
                 </div>
 
@@ -232,9 +235,9 @@
                     <div class="glass-card p-8 rounded-3xl bg-white shadow-lg border-t-4 border-brand-navy">
                         <h3 class="text-xl font-bold text-brand-navy mb-5 flex items-center gap-2"><i data-feather="shield" class="text-brand-gold"></i> 5. Term Plans</h3>
                         <ul class="space-y-4 mb-6">
-                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">New Jeevan Amar</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">955</span></li>
-                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Yuva Term</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">875</span></li>
-                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Bima Kavach</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">887</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer" onclick="openPlanModal('955')"><span class="font-bold text-gray-800">New Jeevan Amar</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">955</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer" onclick="openPlanModal('875')"><span class="font-bold text-gray-800">Yuva Term</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">875</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer" onclick="openPlanModal('887')"><span class="font-bold text-gray-800">Bima Kavach</span> <span class="text-xs font-bold bg-brand-gold text-white px-3 py-1 rounded-full shadow">887</span></li>
                         </ul>
                         <p class="text-sm text-gray-600 font-medium bg-brand-pearl p-3 rounded-lg border border-gray-100">Benefits: Pure Protection, Highest Life Cover</p>
                     </div>
@@ -243,8 +246,8 @@
                     <div class="glass-card p-8 rounded-3xl bg-white shadow-lg border-t-4 border-brand-gold">
                         <h3 class="text-xl font-bold text-brand-navy mb-5 flex items-center gap-2"><i data-feather="trending-up" class="text-brand-navy"></i> 6. Ulip Plans</h3>
                         <ul class="space-y-4 mb-6">
-                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Index Plus</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">873</span></li>
-                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition"><span class="font-bold text-gray-800">Protection Plus</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">886</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer" onclick="openPlanModal('873')"><span class="font-bold text-gray-800">Index Plus</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">873</span></li>
+                            <li class="flex justify-between items-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer" onclick="openPlanModal('886')"><span class="font-bold text-gray-800">Protection Plus</span> <span class="text-xs font-bold bg-brand-navy text-white px-3 py-1 rounded-full shadow">886</span></li>
                         </ul>
                         <p class="text-sm text-gray-600 font-medium bg-brand-pearl p-3 rounded-lg border border-gray-100">Benefits: Market Linked Returns, Wealth Creation</p>
                     </div>
@@ -540,6 +543,42 @@
             </div>
         </div>
     </footer>
+
+    <!-- Plan Modal -->
+    <div id="plan-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4">
+        <div id="plan-modal-content" class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+            <div class="p-6 sm:p-10 relative">
+                <!-- Close Button -->
+                <button onclick="closePlanModal()" class="absolute top-6 right-6 text-gray-400 hover:text-brand-navy hover:bg-gray-100 p-2 rounded-full transition-colors">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+                
+                <!-- Icon Header -->
+                <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-2xl flex items-center justify-center mb-6 border border-brand-navy/10">
+                    <i data-feather="info" class="w-8 h-8"></i>
+                </div>
+                
+                <!-- Title & Content -->
+                <h3 id="plan-modal-title" class="text-3xl font-bold text-brand-navy mb-2">Plan Name</h3>
+                <p id="plan-modal-type" class="inline-block px-3 py-1 mb-6 text-xs font-bold bg-brand-gold/10 text-brand-gold rounded-full uppercase tracking-wider">Plan Category</p>
+                
+                <p id="plan-modal-desc" class="text-gray-600 text-lg leading-relaxed mb-8">Plan description goes here.</p>
+                
+                <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100 mb-8">
+                    <h4 class="font-bold text-brand-navy mb-3 flex items-center gap-2"><i data-feather="check-circle" class="w-5 h-5 text-blue-500"></i> Looking for more details?</h4>
+                    <p class="text-sm text-gray-600 mb-4">Every family's financial needs are different. Let us help you customize this plan to give you the highest benefits based on your exact requirements.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html" class="btn-primary rounded-xl px-6 py-3 font-semibold text-center flex-1 shadow-md hover:shadow-lg flex justify-center items-center gap-2">
+                            <i data-feather="calendar" class="w-4 h-4"></i> Get a Custom Quote
+                        </a>
+                        <a href="tel:+919669484612" class="border-2 border-brand-navy text-brand-navy rounded-xl px-6 py-3 font-semibold text-center flex-1 hover:bg-brand-navy hover:text-white transition-colors flex justify-center items-center gap-2">
+                            <i data-feather="phone-call" class="w-4 h-4"></i> Call Me Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Initialize Icons & Script -->
     <script>

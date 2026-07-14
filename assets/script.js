@@ -94,9 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize AOS if it exists
   if (typeof AOS !== 'undefined') {
+    // Force all elements to animate from right side
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      el.setAttribute('data-aos', 'fade-left');
+    });
+
     AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
+      duration: 600, // Faster animation
+      easing: 'ease-out-cubic',
       once: true,
       mirror: false
     });

@@ -109,9 +109,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 md:h-20">
                 <div class="flex items-center">
-                    <a href="index.html" class="flex-shrink-0 flex items-center group">
-                        <span class="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight animate-shimmer">Sunil Kumar Pandey</span>
-                        <span id="animated-subtitle" class="ml-4 text-sm text-gray-500 hidden sm:block border-l-2 pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-1">Financial Planner</span>
+                    <a href="index.html" class="flex-shrink-0 flex flex-col sm:flex-row items-start sm:items-center group mt-1 sm:mt-0">
+                        <span class="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight animate-shimmer leading-tight">Sunil Kumar Pandey</span>
+                        <span id="animated-subtitle" class="sm:ml-4 text-xs sm:text-sm text-gray-500 sm:border-l-2 sm:pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-0.5 sm:mt-1">Financial Planner</span>
                     </a>
                 </div>
                 
@@ -545,12 +545,6 @@
     <script>
         feather.replace();
         
-        // Mobile Menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
         // Tab Switching Logic
         function switchSection(sectionId, btnElement) {
             // Hide all sections

@@ -42,7 +42,7 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24">
+            <div class="flex justify-between h-16 md:h-20">
                 <div class="flex items-center">
                     <a href="index.html" class="flex-shrink-0 flex items-center group">
                         <span class="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight animate-shimmer">Sunil Kumar Pandey</span>
@@ -97,38 +97,41 @@
                 <div class="flex items-center justify-center mb-12">
                     <h2 class="text-4xl font-serif font-bold text-brand-navy text-center">LIC <span class="italic font-light">Insurance Plans</span></h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Service Card -->
-                    <div class="glass-card p-8 group hover:bg-white/90">
+                    <div class="glass-card p-8 group hover:bg-white/90 cursor-pointer" onclick="openServiceModal('term')">
                         <div class="w-16 h-16 bg-blue-50 text-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
                             <i data-feather="shield" class="w-8 h-8"></i>
                         </div>
                         <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">Term Insurance</h3>
                         <p class="text-gray-500 leading-relaxed font-light">Pure protection plans ensuring extremely high coverage at a minimal premium to protect your loved ones.</p>
+                        <div class="mt-4 text-brand-gold font-semibold flex items-center gap-1 text-sm group-hover:underline">View Details <i data-feather="arrow-right" class="w-4 h-4"></i></div>
                     </div>
                     <!-- Service Card -->
-                    <div class="glass-card p-8 group hover:bg-white/90">
+                    <div class="glass-card p-8 group hover:bg-white/90 cursor-pointer" onclick="openServiceModal('endowment')">
                         <div class="w-16 h-16 bg-blue-50 text-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
                             <i data-feather="trending-up" class="w-8 h-8"></i>
                         </div>
                         <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">Endowment Plans</h3>
                         <p class="text-gray-500 leading-relaxed font-light">A balanced combination of life protection and assured savings for your future capital needs.</p>
+                        <div class="mt-4 text-brand-gold font-semibold flex items-center gap-1 text-sm group-hover:underline">View Details <i data-feather="arrow-right" class="w-4 h-4"></i></div>
                     </div>
                     <!-- Service Card -->
-                    <div class="glass-card p-8 group hover:bg-white/90">
+                    <div class="glass-card p-8 group hover:bg-white/90 cursor-pointer" onclick="openServiceModal('health')">
                         <div class="w-16 h-16 bg-blue-50 text-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
                             <i data-feather="heart" class="w-8 h-8"></i>
                         </div>
                         <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">Health Plans</h3>
                         <p class="text-gray-500 leading-relaxed font-light">Comprehensive medical coverage guarding your finances against unforeseen healthcare emergencies.</p>
+                        <div class="mt-4 text-brand-gold font-semibold flex items-center gap-1 text-sm group-hover:underline">View Details <i data-feather="arrow-right" class="w-4 h-4"></i></div>
                     </div>
                     <!-- Service Card -->
-                    <div class="glass-card p-8 group hover:bg-white/90">
+                    <div class="glass-card p-8 group hover:bg-white/90 cursor-pointer" onclick="openServiceModal('child')">
                         <div class="w-16 h-16 bg-blue-50 text-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:bg-brand-navy group-hover:text-brand-gold transition-all duration-300">
                             <i data-feather="user" class="w-8 h-8"></i>
                         </div>
                         <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">Child Plans</h3>
                         <p class="text-gray-500 leading-relaxed font-light">Secure your child's higher education and marriage expenses with guaranteed returns.</p>
+                        <div class="mt-4 text-brand-gold font-semibold flex items-center gap-1 text-sm group-hover:underline">View Details <i data-feather="arrow-right" class="w-4 h-4"></i></div>
                     </div>
                 </div>
             </div>
@@ -244,6 +247,44 @@
             </div>
         </div>
     </footer>
+
+    <!-- Service Modal Structure -->
+    <div id="service-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm" onclick="closeServiceModal()"></div>
+        <!-- Modal Content -->
+        <div class="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="service-modal-content">
+            <!-- Close button -->
+            <button onclick="closeServiceModal()" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full p-2 transition-colors z-10">
+                <i data-feather="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="p-8 md:p-10">
+                <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-2xl flex items-center justify-center mb-6" id="modal-icon">
+                    <i data-feather="shield" class="w-8 h-8" id="modal-feather-icon"></i>
+                </div>
+                <h2 class="text-3xl font-serif font-bold text-brand-navy mb-2" id="modal-title">Service Title</h2>
+                <p class="text-gray-500 mb-8" id="modal-desc">Detailed description goes here.</p>
+                
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 mb-8">
+                    <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2"><i data-feather="info" class="text-brand-gold w-5 h-5"></i> How to Take LIC Policy</h4>
+                    <ol class="space-y-3 text-sm text-gray-700 list-decimal list-inside marker:text-brand-gold marker:font-bold">
+                        <li><strong>Schedule a Consultation:</strong> Reach out to discuss your specific financial needs.</li>
+                        <li><strong>Need Analysis:</strong> We will evaluate your requirements and suggest the best-suited plan.</li>
+                        <li><strong>Document Collection:</strong> Prepare Aadhaar, PAN, Bank Details, and Photos.</li>
+                        <li><strong>Proposal Form:</strong> We will fill out the online/offline proposal form for you.</li>
+                        <li><strong>Medical Test (if applicable):</strong> Depending on the sum assured, a simple medical checkup might be needed.</li>
+                        <li><strong>Payment & Issuance:</strong> Pay the first premium directly to LIC. The bond will be issued shortly after.</li>
+                    </ol>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html" class="flex-1 bg-brand-navy hover:bg-brand-midnight text-white text-center py-3 rounded-full font-bold transition-all shadow-lg shadow-brand-navy/30">Get in Touch</a>
+                    <a href="tel:+919669484612" class="flex-1 bg-brand-gold hover:bg-brand-amber text-brand-navy text-center py-3 rounded-full font-bold transition-all flex justify-center items-center gap-2 shadow-lg shadow-brand-gold/20"><i data-feather="phone" class="w-4 h-4"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Initialize Icons -->
     <script>

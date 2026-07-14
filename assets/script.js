@@ -89,3 +89,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Service Modal Functions (Global Scope)
+const serviceDetails = {
+    'term': {
+        title: 'Term Insurance',
+        desc: 'Pure protection plans ensuring extremely high coverage at a minimal premium to protect your loved ones.',
+        icon: 'shield'
+    },
+    'endowment': {
+        title: 'Endowment Plans',
+        desc: 'A balanced combination of life protection and assured savings for your future capital needs.',
+        icon: 'trending-up'
+    },
+    'health': {
+        title: 'Health Plans',
+        desc: 'Comprehensive medical coverage guarding your finances against unforeseen healthcare emergencies.',
+        icon: 'heart'
+    },
+    'child': {
+        title: 'Child Plans',
+        desc: "Secure your child's higher education and marriage expenses with guaranteed returns.",
+        icon: 'user'
+    }
+};
+
+window.openServiceModal = function(type) {
+    const modal = document.getElementById('service-modal');
+    const modalContent = document.getElementById('service-modal-content');
+    if(!modal) return;
+    
+    const details = serviceDetails[type];
+    if(details) {
+        document.getElementById('modal-title').innerText = details.title;
+        document.getElementById('modal-desc').innerText = details.desc;
+        const iconEl = document.getElementById('modal-feather-icon');
+        iconEl.setAttribute('data-feather', details.icon);
+        if(typeof feather !== 'undefined') feather.replace();
+    }
+    
+    modal.classList.remove('hidden');
+    // small delay for transition
+    setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
+}
+
+window.closeServiceModal = function() {
+    const modal = document.getElementById('service-modal');
+    const modalContent = document.getElementById('service-modal-content');
+    if(!modal) return;
+    
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+}

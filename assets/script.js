@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.classList.toggle('active');
     });
   }
 
@@ -76,6 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         filterPlans();
       });
+    });
+  }
+
+  // Header Scroll Effect
+  const nav = document.querySelector('nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
     });
   }
 

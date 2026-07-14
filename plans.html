@@ -109,12 +109,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 md:h-20">
                 <div class="flex items-center">
-                    <a href="index.html" class="flex-shrink-0 flex flex-col sm:flex-row items-start sm:items-center group mt-1 sm:mt-0">
-                        <div class="flex items-center">
-                            <img src="images/logo.png" alt="Sunil Financial Logo" class="h-12 sm:h-14 w-12 sm:w-14 -ml-2 mr-3 object-cover rounded-full shadow-md">
-                            <span class="font-serif font-bold text-xl sm:text-2xl md:text-3xl tracking-tight animate-shimmer leading-tight">Sunil Financial</span>
+                    <a href="index.html" class="flex-shrink-0 flex items-center group mt-1 sm:mt-0">
+                        <img src="images/logo.png" alt="Sunil Financial Logo" class="h-14 sm:h-16 w-14 sm:w-16 -ml-2 mr-3 sm:mr-4 object-cover rounded-full shadow-md border-2 border-brand-gold/20">
+                        <div class="flex flex-col justify-center items-center">
+                            <span class="font-serif font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight animate-shimmer leading-none">Sunil Financial</span>
+                            <span id="animated-subtitle" class="text-[10px] sm:text-xs text-brand-gold/80 uppercase tracking-widest font-semibold mt-1 text-center w-full">Your Financial Planner</span>
                         </div>
-                        <span id="animated-subtitle" class="sm:ml-4 text-xs sm:text-sm text-gray-500 sm:border-l-2 sm:pl-4 border-brand-gold/30 uppercase tracking-widest font-semibold mt-1 sm:mt-0">Financial Planner</span>
                     </a>
                 </div>
                 
@@ -548,11 +548,11 @@
 
     <!-- Plan Modal -->
     <div id="plan-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-4">
-        <div id="plan-modal-content" class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
-            <div class="p-6 sm:p-10 relative">
+        <div id="plan-modal-content" class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-300">
+            <div class="p-5 sm:p-8 relative">
                 <!-- Close Button -->
-                <button onclick="closePlanModal()" class="absolute top-6 right-6 text-gray-400 hover:text-brand-navy hover:bg-gray-100 p-2 rounded-full transition-colors">
-                    <i data-feather="x" class="w-6 h-6"></i>
+                <button onclick="closePlanModal()" class="absolute top-3 right-3 sm:top-5 sm:right-5 text-gray-400 hover:text-brand-navy hover:bg-gray-100 p-2 rounded-full transition-colors z-10 bg-white shadow-sm border border-gray-100">
+                    <i data-feather="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </button>
                 
                 <!-- Icon Header -->
